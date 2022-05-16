@@ -1,0 +1,25 @@
+package ro.tuc.ds2020.dtos.builders;
+
+import ro.tuc.ds2020.dtos.PersonDTO;
+import ro.tuc.ds2020.dtos.PersonDetailsDTO;
+import ro.tuc.ds2020.entities.Person;
+
+public class PersonBuilder {
+
+    private PersonBuilder() {
+    }
+
+    public static PersonDetailsDTO toPersonDTO(Person person) {
+        return new PersonDetailsDTO(person.getId(), person.getName(), person.getAge(), person.getAddress());
+    }
+
+    public static PersonDetailsDTO toPersonDetailsDTO(Person person) {
+        return new PersonDetailsDTO(person.getId(), person.getName(), person.getAge(),person.getAddress());
+    }
+
+    public static Person toEntity(PersonDetailsDTO personDetailsDTO) {
+        return new Person(personDetailsDTO.getName(),
+                personDetailsDTO.getAddress(),
+                personDetailsDTO.getAge());
+    }
+}
